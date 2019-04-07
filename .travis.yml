@@ -1,0 +1,9 @@
+sudo:required
+services:
+  - docker
+
+before_install:
+  - docker build -t nikolaospapasavvas/docker-react-travisCI -f Dockerfile.dev .
+
+script:
+  - docker run nikolaospapasavvas/docker-react-travisCI npm run test -- --coverage
